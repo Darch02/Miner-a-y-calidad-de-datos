@@ -14,18 +14,22 @@ El resultado del perfilado fue exportado en formato **HTML** e incluido en este 
 ### B. Diagnóstico de Calidad de Datos
 A partir del perfilado, se evaluaron las principales **dimensiones de calidad de datos**, entre ellas:
 
-- **Completitud:** Se identificaron valores faltantes y se aplicaron estrategias de imputación.
-- **Consistencia:** Se verificaron rangos válidos y coherencia entre variables relacionadas.
-- **Exactitud:** Se depuraron registros con errores evidentes.
-- **Validez:** Se revisaron los tipos de datos y dominios de valores permitidos.
-- **Unicidad:** Se eliminaron posibles duplicados.
+- **Completitud**:  Toda la información está completa, a exepción del campo de salario, ya que este solo aplica para las personas que ya están posicionadas laboralmente
+- **Exactitud**: La información es correcta y libre de error. Todos los campos numéricos están en un rango adecuado , que corresponde a un promedio académico de de 0 a 100.
+- **Conformidad**: Los valores están conformes con los formatos establecidos. Todas las variables categóricas tienen los formatos de las categorías unificados, sin haber discrepancias entre registros pertiecientes a una misma categoría.
+- **Oportunidad**: El dataset es de hace 6 años, por lo que las condiciones educativas y las oportunidades laborales pueden haber cambiado mucho, restándole relevancia a la información que se extraiga de los datos. Sin embargo, puede ser muy útil para el aprendizaje
+- **Duplicidad**: No existen registros duplicados, pero existen algunas variables con correlaciones altas
+Integridad: Los datos son coherentes y tienen una relación clara. Un ejemplo de esto es que el campo de salario solo aplica para las personas que ya están posicionadas laboralmente, y en los registros en los que la persona no está posicionada, hay nulos
 
 ### C. Limpieza y Mejora
-Los datos fueron tratados mediante:
-- Imputación de valores faltantes.
-- Codificación de variables categóricas.
-- Normalización de variables numéricas.
-- Eliminación de inconsistencias detectadas.
+Limpieza de los datos:
+1.	Detección de duplicados: no había duplicados
+2.	Selección de datos: En este caso se seleccionaron todas las variables predictoras a excepción de sl_n que es el id de los registros y salary, ya que solo aplica para los estudiantes que ya están posicionados}
+3.	Limpieza de datos atípicos: no hay datos atípicos
+4.	Limpieza de datos nulos: no hay datos nulos
+Mejora de los datos:
+1.	Análisis de correlaciones: Se encontraron correlaciones altas entre las dummies de una misma variable( degree_t y hsc_s ). Se encontraron correlaciones menores a 0.05 respecto a la variable objetivo ( status ) de las siguientes variables: 'degree_t','hsc_s','ssc_b' y 'hsc_b'
+2.	Balanceo de datos: En este caso se realiza un balanceo, ya que la variable objetivo es categórica y una de las categorías tiene menos de la mitad de los registros de la otra (148 vs 67 )
 
 ---
 
@@ -75,7 +79,7 @@ RandomForestClassifier(
     n_estimators=100,
     random_state=42
 )
-
+```
 
 Por:
 Juana Jaramillo y Valentina Soto
