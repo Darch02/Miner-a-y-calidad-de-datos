@@ -3,6 +3,12 @@
 Este proyecto tiene como objetivo **predecir si un estudiante será contratado** durante el proceso de reclutamiento en el campus universitario, utilizando técnicas de **Minería de Datos y Machine Learning**.  
 El trabajo se divide en tres grandes fases: **Calidad de Datos**, **Minería de Datos** y **Despliegue del Modelo**.
 
+## Link del github del despliegue: 
+https://github.com/valensoto486/Despliegue_practica4
+
+## Link de la interfaz grafica del despliegue:
+https://desplieguepractica4-akbhpegyylevnpfesxhyke.streamlit.app/
+
 ---
 
 ## 1. Calidad de Datos
